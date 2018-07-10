@@ -43,6 +43,9 @@ if (!is_null($events['events'])) {
         // When user click on rich menu
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 
+            // Get replyToken
+            $replyToken = $event['replyToken'];
+
             switch($event['message']['text']) {
                 
                 case 'Open shop':
@@ -62,11 +65,12 @@ if (!is_null($events['events'])) {
                     }
 
                     $carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
-                    $outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
+                    $templateMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
 
+                    
                     $httpClient = new CurlHTTPClient($channel_token);
                     $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret));
-                    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+                    $response = $bot->replyMessage($replyToken, $templateMessageBuilder);
 
                     break;
             }
