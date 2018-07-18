@@ -24,255 +24,62 @@ if (!is_null($events['events'])) {
 
                     $messages = array (
                         'type' => 'bubble',
-                        'styles' =>
-                            array (
-                                'footer' =>
-                                    array (
-                                        'separator' => true,
-                                    ),
-                            ),
                         'body' =>
                             array (
                                 'type' => 'box',
                                 'layout' => 'vertical',
+                                'spacing' => 'md',
                                 'contents' =>
                                     array (
                                         0 =>
                                             array (
-                                                'type' => 'text',
-                                                'text' => 'RECEIPT',
-                                                'weight' => 'bold',
-                                                'color' => '#1DB446',
-                                                'size' => 'sm',
-                                            ),
-                                        1 =>
-                                            array (
-                                                'type' => 'text',
-                                                'text' => 'Brown Store',
-                                                'weight' => 'bold',
-                                                'size' => 'xxl',
-                                                'margin' => 'md',
-                                            ),
-                                        2 =>
-                                            array (
-                                                'type' => 'text',
-                                                'text' => 'Miraina Tower, 4-1-6 Shinjuku, Tokyo',
-                                                'size' => 'xs',
-                                                'color' => '#aaaaaa',
-                                                'wrap' => true,
-                                            ),
-                                        3 =>
-                                            array (
-                                                'type' => 'separator',
-                                                'margin' => 'xxl',
-                                            ),
-                                        4 =>
-                                            array (
                                                 'type' => 'box',
                                                 'layout' => 'vertical',
-                                                'margin' => 'xxl',
-                                                'spacing' => 'sm',
+                                                'margin' => 'sm',
                                                 'contents' =>
                                                     array (
                                                         0 =>
                                                             array (
-                                                                'type' => 'box',
-                                                                'layout' => 'horizontal',
-                                                                'contents' =>
-                                                                    array (
-                                                                        0 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => 'Energy Drink',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#555555',
-                                                                                'flex' => 0,
-                                                                            ),
-                                                                        1 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => '$2.99',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#111111',
-                                                                                'align' => 'end',
-                                                                            ),
-                                                                    ),
+                                                                'type' => 'text',
+                                                                'text' => 'I AM HAVING PROBLEMS ACCESSING SAMPLE STORE. SOME OF THE PAGES LOOK WEIRD. AM I USING THE RIGHT BROWSER?',
+                                                                'wrap' => true,
+                                                                'color' => '#000000',
                                                             ),
                                                         1 =>
                                                             array (
-                                                                'type' => 'box',
-                                                                'layout' => 'horizontal',
-                                                                'contents' =>
-                                                                    array (
-                                                                        0 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => 'Chewing Gum',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#555555',
-                                                                                'flex' => 0,
-                                                                            ),
-                                                                        1 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => '$0.99',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#111111',
-                                                                                'align' => 'end',
-                                                                            ),
-                                                                    ),
-                                                            ),
-                                                        2 =>
-                                                            array (
-                                                                'type' => 'box',
-                                                                'layout' => 'horizontal',
-                                                                'contents' =>
-                                                                    array (
-                                                                        0 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => 'Bottled Water',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#555555',
-                                                                                'flex' => 0,
-                                                                            ),
-                                                                        1 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => '$3.33',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#111111',
-                                                                                'align' => 'end',
-                                                                            ),
-                                                                    ),
-                                                            ),
-                                                        3 =>
-                                                            array (
-                                                                'type' => 'separator',
-                                                                'margin' => 'xxl',
-                                                            ),
-                                                        4 =>
-                                                            array (
-                                                                'type' => 'box',
-                                                                'layout' => 'horizontal',
-                                                                'margin' => 'xxl',
-                                                                'contents' =>
-                                                                    array (
-                                                                        0 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => 'ITEMS',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#555555',
-                                                                            ),
-                                                                        1 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => '3',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#111111',
-                                                                                'align' => 'end',
-                                                                            ),
-                                                                    ),
-                                                            ),
-                                                        5 =>
-                                                            array (
-                                                                'type' => 'box',
-                                                                'layout' => 'horizontal',
-                                                                'contents' =>
-                                                                    array (
-                                                                        0 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => 'TOTAL',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#555555',
-                                                                            ),
-                                                                        1 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => '$7.31',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#111111',
-                                                                                'align' => 'end',
-                                                                            ),
-                                                                    ),
-                                                            ),
-                                                        6 =>
-                                                            array (
-                                                                'type' => 'box',
-                                                                'layout' => 'horizontal',
-                                                                'contents' =>
-                                                                    array (
-                                                                        0 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => 'CASH',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#555555',
-                                                                            ),
-                                                                        1 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => '$8.0',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#111111',
-                                                                                'align' => 'end',
-                                                                            ),
-                                                                    ),
-                                                            ),
-                                                        7 =>
-                                                            array (
-                                                                'type' => 'box',
-                                                                'layout' => 'horizontal',
-                                                                'contents' =>
-                                                                    array (
-                                                                        0 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => 'CHANGE',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#555555',
-                                                                            ),
-                                                                        1 =>
-                                                                            array (
-                                                                                'type' => 'text',
-                                                                                'text' => '$0.69',
-                                                                                'size' => 'sm',
-                                                                                'color' => '#111111',
-                                                                                'align' => 'end',
-                                                                            ),
-                                                                    ),
+                                                                'type' => 'text',
+                                                                'text' => 'As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers, it is recommended that you use the following browsers to access Sample Store: 
+
+ 1. Microsoft Internet Explorer Version 10 onwards.',
+                                                                'wrap' => true,
+                                                                'color' => '#666666',
                                                             ),
                                                     ),
                                             ),
-                                        5 =>
+                                        1 =>
                                             array (
                                                 'type' => 'separator',
-                                                'margin' => 'xxl',
                                             ),
-                                        6 =>
+                                        2 =>
                                             array (
                                                 'type' => 'box',
-                                                'layout' => 'horizontal',
-                                                'margin' => 'md',
+                                                'layout' => 'vertical',
+                                                'margin' => 'sm',
                                                 'contents' =>
                                                     array (
                                                         0 =>
                                                             array (
                                                                 'type' => 'text',
-                                                                'text' => 'PAYMENT ID',
-                                                                'size' => 'xs',
-                                                                'color' => '#aaaaaa',
-                                                                'flex' => 0,
+                                                                'text' => 'HOW DO I MAKE PAYMENTS USING PAYPAL? HOW DOES IT WORK? ',
+                                                                'wrap' => true,
+                                                                'color' => '#000000',
                                                             ),
                                                         1 =>
                                                             array (
                                                                 'type' => 'text',
-                                                                'text' => '#743289384279',
-                                                                'color' => '#aaaaaa',
-                                                                'size' => 'xs',
-                                                                'align' => 'end',
+                                                                'text' => 'Paypal is the easiest way to make payments online. While checking out your order, you will be redirected to the Paypal website. Be sure to fill in correct details for fast & hassle-free payment processing. After a successful Paypal payment, a payment advice will be automatically generated to Samplestore.com system for your order.',
+                                                                'wrap' => true,
+                                                                'color' => '#666666',
                                                             ),
                                                     ),
                                             ),
