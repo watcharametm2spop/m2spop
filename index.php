@@ -54,13 +54,8 @@ if (!is_null($events['events'])) {
                     $client->replyMessage(array(
                         'replyToken' => $replyToken,
                         'messages' => array(
-                            'type' => 'bubble',
-                            'body' => array(
-                                'type' => 'box',
-                                'layout' => 'vertical',
-                                'spacing' => 'md',
-                                'contents' => $messages,
-                            )
+                            'type' => 'text',
+                            'message' => 'x'
                         )
                     ));
 
