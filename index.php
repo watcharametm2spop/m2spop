@@ -82,7 +82,8 @@ if (!is_null($events['events'])) {
                         ),
                     ];
 
-                    error_log($message);
+                    error_log(json_encode($message));
+                    
                     send_message_to_line($channel_token, $message);
 
                     break;
