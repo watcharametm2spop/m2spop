@@ -22,10 +22,6 @@ if (!is_null($events['events'])) {
             switch($event['message']['text']) {
                 case 'FAQ':
 
-                    $headers = array();
-                    $headers[] = "Content-Type: application/json";
-                    $headers[] = "Authorization: Bearer {$channel_secret}";
-
                     $messages = array();
                     #Message 1
                     $messages[] = array(
@@ -86,7 +82,7 @@ if (!is_null($events['events'])) {
                         ),
                     ];
 
-                    send_message_to_line($access_token, $message);
+                    send_message_to_line($channel_token, $message);
 
                     break;
             }
