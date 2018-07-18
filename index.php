@@ -22,8 +22,7 @@ if (!is_null($events['events'])) {
             switch($event['message']['text']) {
                 case 'FAQ':
 
-                    $messages = array();
-                    $messages[] = array (
+                    $messages = array (
                         'type' => 'flex',
                         'altText' => 'This is a Flex Message',
                         'contents' =>
@@ -54,10 +53,11 @@ if (!is_null($events['events'])) {
                     $message = array(
                         'replyToken' => $replyToken,
                         'messages' => array(
-                            'type' => 'flex',
-                            'contents' => $messages,
-                        )
-                    );
+                            array(
+                                'type' => 'flex',
+                                'contents' => $messages,
+                            )
+                        ));
 
                     error_log(json_encode($message));
 
