@@ -71,7 +71,7 @@ if (!is_null($events['events'])) {
                         )
                     );
 
-                    var_dump(json_encode($messages));
+                    error_log(json_encode($messages));
 
                     // Send message to Customer through LINE
                     $client->replyMessage(array(
