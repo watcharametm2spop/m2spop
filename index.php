@@ -55,7 +55,12 @@ if (!is_null($events['events'])) {
                         'replyToken' => $replyToken,
                         'messages' => array(
                             'type' => 'text',
-                            'message' => 'x'
+                            'messages' => array(
+                                array(
+                                    'type' => 'text',
+                                    'text' => $message['text']
+                                )
+                            )
                         )
                     ));
 
