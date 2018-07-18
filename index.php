@@ -46,30 +46,7 @@ if (!is_null($events['events'])) {
                             ),
                         )
                     );
-                    #Separator
-                    $messages[] = array(
-                        'type' => 'separator'
-                    );
-                    #Message 2
-                    $messages[] = array(
-                        'type' => 'box',
-                        'layout' => 'vertical',
-                        'spacing' => 'sm',
-                        'contents' => array(
-                            array(
-                                'type' => 'text',
-                                'text' => 'HOW DO I MAKE PAYMENTS USING PAYPAL? HOW DOES IT WORK?',
-                                'wrap' => true,
-                                'color' => '#000000',
-                            ),
-                            array(
-                                'type' => 'text',
-                                'text' => 'Paypal is the easiest way to make payments online. While checking out your order, you will be redirected to the Paypal website. Be sure to fill in correct details for fast & hassle-free payment processing. After a successful Paypal payment, a payment advice will be automatically generated to Samplestore.com system for your order.',
-                                'wrap' => true,
-                                'color' => '#000000',
-                            ),
-                        )
-                    );
+
 
                     error_log(json_encode($messages));
 
