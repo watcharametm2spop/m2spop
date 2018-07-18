@@ -283,7 +283,10 @@ if (!is_null($events['events'])) {
                     // Create message for send to LINE Server
                     $message = array(
                         'replyToken' => $replyToken,
-                        'messages' => $messages
+                        'messages' => array(
+                            'type' => 'flex',
+                            'contents' => $messages,
+                        )
                     );
 
                     error_log(json_encode($message));
