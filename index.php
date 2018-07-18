@@ -22,7 +22,8 @@ if (!is_null($events['events'])) {
             switch($event['message']['text']) {
                 case 'FAQ':
 
-                    $messages = array (
+                    $messages = array();
+                    $messages[] = array (
                         'type' => 'bubble',
                         'body' =>
                             array (
