@@ -93,6 +93,7 @@ if (!is_null($events['events'])) {
                         'messages' => array(
                             array(
                                 'type' => 'flex',
+                                "altText" => "This is a Flex Message",
                                 'contents' => $messages,
                             )
                         ));
