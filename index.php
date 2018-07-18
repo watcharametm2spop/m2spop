@@ -93,7 +93,7 @@ if (!is_null($events['events'])) {
                         'replyToken' => $replyToken,
                         'messages' => array(
                             'type' => 'flex',
-                            'contents' => $messages,
+                            'contents' => [$messages],
                         )
                     );
 
