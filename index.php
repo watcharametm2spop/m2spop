@@ -82,6 +82,7 @@ if (!is_null($events['events'])) {
                         ),
                     ];
 
+                    error_log($message);
                     send_message_to_line($channel_token, $message);
 
                     break;
@@ -110,6 +111,9 @@ function send_message_to_line($access_token, $message){
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     $result = curl_exec($ch);
+
+    error_log($result);
+
     curl_close($ch);
 }
 
