@@ -11,7 +11,6 @@ $client = new LINEBotTiny($channel_token, $channel_secret);
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
-
 if (!is_null($events['events'])) {
 
 	// Loop through each event
@@ -101,30 +100,5 @@ if (!is_null($events['events'])) {
 	}
 }
 
-/**
- * Call curl to send message to LINE
- *
- * @param string $access_token
- * @param array $message
- */
-function send_message_to_line($access_token, $message){
-    $url = 'https://api.line.me/v2/bot/message/reply';
-
-    $headers = array();
-    $headers[] = "Content-Type: application/json";
-    $headers[] = "Authorization: Bearer {$access_token}";
-
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($message));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    $result = curl_exec($ch);
-
-    error_log($result);
-
-    curl_close($ch);
-}
 
 echo "OK";
