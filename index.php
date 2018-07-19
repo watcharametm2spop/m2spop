@@ -115,7 +115,7 @@ if (!is_null($events['events'])) {
                     break;
                 case 'Best Seller':
                     $orders = $woocommerce->get('orders');
-                    error_log($orders);
+                    error_log(json_encode($orders));
                     break;
             }
         }
