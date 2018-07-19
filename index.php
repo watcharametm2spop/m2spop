@@ -121,27 +121,26 @@ if (!is_null($events['events'])) {
 
                     $columns = array();
 
+                    $img_url = "https://gloimg.rglcdn.com/rosegal/pdm-product-pic/Clothing/2017/12/28/source-img/20171228165936_78536.jpg";
 
-                    foreach($products as $product){
-                        $img_url = "https://gloimg.rglcdn.com/rosegal/pdm-product-pic/Clothing/2017/12/28/source-img/20171228165936_78536.jpg";
+                    for($i=0;$i<2;$i++) {
                         $actions = array(
-                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
-                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("Order", $product->permalink),
+                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("สั่งซื้อเสื้อเบอร์ S","https://m2spop.herokuapp.com/buy.php?id=10&size=S"),
+                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("สั่งซื้อเสื้อเบอร์ M","https://m2spop.herokuapp.com/buy.php?id=10&size=M"),
+                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("สั่งซื้อเสื้อเบอร์ L","https://m2spop.herokuapp.com/buy.php?id=10&size=L"),
                         );
 
-                        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($product->name, $product->short_description, $img_url , $actions);
+                        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Hoodie", "Pellentesque habitant morbi tristique senectus et netus et m", $img_url , $actions);
                         $columns[] = $column;
                     }
 
                     $carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
-                    $templateMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("New Avairal", $carousel);
+                    $templateMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
 
 
                     $httpClient = new CurlHTTPClient($channel_token);
                     $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret));
                     $response = $bot->replyMessage($replyToken, $templateMessageBuilder);
-
-                    error_log(json_encode($response));
 
                     break;
 
