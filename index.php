@@ -118,7 +118,7 @@ if (!is_null($events['events'])) {
 
                 case 'New Avairal':
                     $products = $woocommerce->get('products', array( 'orderby' => 'date', 'order' => 'desc', 'per_page' => 10));
-error_log(json_encode($products)) ;
+
                     $columns = array();
 
                     $img_url = "https://gloimg.rglcdn.com/rosegal/pdm-product-pic/Clothing/2017/12/28/source-img/20171228165936_78536.jpg";
@@ -126,11 +126,10 @@ error_log(json_encode($products)) ;
                     foreach($products as $product) {
                         $actions = array(
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
-                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("สั่งซื้อเสื้อเบอร์ M","https://m2spop.herokuapp.com/buy.php?id=10&size=M"),
-                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("สั่งซื้อเสื้อเบอร์ L","https://m2spop.herokuapp.com/buy.php?id=10&size=L"),
+                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Order item',$wooEnpoint.'/shop/?add-to-cart='. $product->id),
                         );
 
-                        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Hoodie", "Pellentesque habitant morbi tristique senectus et netus et m", $img_url , $actions);
+                        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($product->name, $product->short_description, $img_url , $actions);
                         $columns[] = $column;
                     }
 
