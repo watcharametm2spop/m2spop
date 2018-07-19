@@ -117,13 +117,13 @@ if (!is_null($events['events'])) {
                     break;
 
                 case 'New Avairal':
-                    // $products = $woocommerce->get('products', array( 'orderby' => 'date', 'order' => 'desc', 'per_page' => 10));
-
+                    $products = $woocommerce->get('products', array( 'orderby' => 'date', 'order' => 'desc', 'per_page' => 10));
+error_log(json_encode($products)) ;
                     $columns = array();
 
                     $img_url = "https://gloimg.rglcdn.com/rosegal/pdm-product-pic/Clothing/2017/12/28/source-img/20171228165936_78536.jpg";
 
-                    for($i=0;$i<2;$i++) {
+                    foreach($products as $product) {
                         $actions = array(
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("สั่งซื้อเสื้อเบอร์ S","https://m2spop.herokuapp.com/buy.php?id=10&size=S"),
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("สั่งซื้อเสื้อเบอร์ M","https://m2spop.herokuapp.com/buy.php?id=10&size=M"),
