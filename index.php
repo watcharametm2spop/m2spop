@@ -120,7 +120,7 @@ if (!is_null($events['events'])) {
                     // Create carousel for New Avairal products
                     $LINEClient->replyMessage(array(
                         'replyToken' => $replyToken,
-                        'messages' => array(
+                        'messages' => array(array(
                             'type' => 'template',
                             'altText' => 'this is a carousel template',
                             'template' => array(
@@ -129,19 +129,20 @@ if (!is_null($events['events'])) {
                                 'columns' => array(
                                     array(
                                         'thumbnailImageUrl' => 'http://m2spop.local/wp-content/uploads/2018/07/t-shirt-with-logo-1.jpg',
-                                        'title' => 'Hoodie', 'text' => 'Pellentesque habitant morbi tristique senectus et netus et m',
+                                        'title' => 'Hoodie',
+                                        'text' => 'Pellentesque habitant morbi tristique senectus et netus et m',
                                         'actions' => array(
                                             array(
                                                 'type' => 'postback',
                                                 'label' => 'สั่งซื้อไซต์ S',
                                                 'text' => 'สั่งซื้อ',
-                                                'data' => '{action:\'order\', id: 1, size: \'S\'}',
+                                                'data' => 'xxxxx',
                                             ),
                                         ),
                                     ),
                                 ),
                             ),
-                        ) ));
+                        )) ));
 
                     break;
 
