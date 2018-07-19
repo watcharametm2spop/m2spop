@@ -128,7 +128,7 @@ if (!is_null($events['events'])) {
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Order item',$wooEnpoint.'/shop/?add-to-cart='. $product->id),
                         );
-                        $description = strip_tags($product->short_description);
+                        $description = str_replace('\n', '', strip_tags($product->short_description));
 
                         $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($product->name, $description, $img_url , $actions);
                         $columns[] = $column;
@@ -145,8 +145,7 @@ if (!is_null($events['events'])) {
                     break;
 
                 case 'Best Seller':
-                    $orders = $woocommerce->get('orders');
-                    error_log(json_encode($orders));
+
                     break;
             }
         }
