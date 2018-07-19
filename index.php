@@ -3,6 +3,8 @@
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/LINEBotTiny.php';
 
+use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use \LINE\LINEBot;
 use Automattic\WooCommerce\Client as WooCommerceClient;
 
 // LINE Client
@@ -117,32 +119,26 @@ if (!is_null($events['events'])) {
                 case 'New Avairal':
                     $products = $woocommerce->get('products', array( 'orderby' => 'date', 'order' => 'desc', 'per_page' => 10));
 
-                    // Create carousel for New Avairal products
-                    $LINEClient->replyMessage(array(
-                        'replyToken' => $replyToken,
-                        'messages' => array(array(
-                            'type' => 'template',
-                            'altText' => 'this is a carousel template',
-                            'template' => array(
-                                'type' => 'carousel',
-                                'actions' => array(),
-                                'columns' => array(
-                                    array(
-                                        'thumbnailImageUrl' => 'http://m2spop.local/wp-content/uploads/2018/07/t-shirt-with-logo-1.jpg',
-                                        'title' => 'Hoodie',
-                                        'text' => 'Pellentesque habitant morbi tristique senectus et netus et m',
-                                        'actions' => array(
-                                            array(
-                                                'type' => 'postback',
-                                                'label' => 'สั่งซื้อไซต์ S',
-                                                'text' => 'สั่งซื้อ',
-                                                'data' => 'xxxxx',
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        )) ));
+                    $columns = array();
+
+                    foreach($products as $product){
+                        $img_url = "https://gloimg.rglcdn.com/rosegal/pdm-product-pic/Clothing/2017/12/28/source-img/20171228165936_78536.jpg";
+                        $actions = array(
+                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
+                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("Order", $product->permalink),
+                        );
+
+                        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($product->name, $product->short_description, $img_url , $actions);
+                        $columns[] = $column;
+                    }
+
+                    $carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
+                    $templateMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("New Avairal", $carousel);
+
+
+                    $httpClient = new CurlHTTPClient($channel_token);
+                    $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret));
+                    $response = $bot->replyMessage($replyToken, $templateMessageBuilder);
 
                     break;
 
