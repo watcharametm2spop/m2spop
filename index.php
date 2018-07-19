@@ -1,11 +1,28 @@
 <?php
 
-require_once('./LINEBotTiny.php');
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . 'LINEBotTiny.php';
 
-// Token
+use Automattic\WooCommerce\Client as WooCommerceClient;
+
+// LINE Client
 $channel_token = 'vWFV8hGQvQn/p8BCtcDjRWqmLpBaieSE46aGss4dS6pg99ovTx3aLRw8h1VOQqqJLJInHe9558Vn9XEMgUKvLnl176l4I9LVxsKoJpL/Ys9kAoRlB6rEfYcybyWNbEuU9Y/AV63nQRheUY3lBg9KcQdB04t89/1O/w1cDnyilFU=';
 $channel_secret = 'c6b8cd0c86c93eb91e33ca4a18cd45f4';
-$client = new LINEBotTiny($channel_token, $channel_secret);
+$LINEClient = new LINEBotTiny($channel_token, $channel_secret);
+
+// WooCommerce Client
+$wooEnpoint = 'http://m2spop.kinsta.com';
+$wooConsumerKey = 'ck_baefb163a9eaf1be2344dd858f45eb79c470e60e';
+$wooConsumerSecret = 'cs_8210144df1f6f4dac609e31c6a9c64e1cecb1bfa';
+$woocommerce = new WooCommerceClient(
+    $wooEnpoint,
+    $wooConsumerKey,
+    $wooConsumerSecret,
+    [
+        'wp_api' => true,
+        'version' => 'wc/v1',
+    ]
+);
 
 // Get message from Line API
 $content = file_get_contents('php://input');
@@ -13,16 +30,17 @@ $events = json_decode($content, true);
 
 if (!is_null($events['events'])) {
 
-	// Loop through each event
-	foreach ($events['events'] as $event) {
-    
+    // Loop through each event
+    foreach ($events['events'] as $event) {
+
         // When user click on rich menu
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+        if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 
             // Get replyToken
             $replyToken = $event['replyToken'];
 
-            switch($event['message']['text']) {
+            switch ($event['message']['text']) {
+
                 case 'FAQ':
 
                     $messages = array(
@@ -84,7 +102,7 @@ if (!is_null($events['events'])) {
                     );
 
                     // Create message for send to LINE Server
-                    $client->replyMessage( array(
+                    $LINEClient->replyMessage(array(
                         'replyToken' => $replyToken,
                         'messages' => array(
                             array(
@@ -95,9 +113,13 @@ if (!is_null($events['events'])) {
                         )));
 
                     break;
+                case 'Best Seller':
+                    $orders = $woocommerce->get('orders');
+                    error_log($orders);
+                    break;
             }
-		}
-	}
+        }
+    }
 }
 
 
