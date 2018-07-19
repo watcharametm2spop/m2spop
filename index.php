@@ -128,8 +128,9 @@ if (!is_null($events['events'])) {
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Order item',$wooEnpoint.'/shop/?add-to-cart='. $product->id),
                         );
+                        $description = strip_tags($product->short_description);
 
-                        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($product->name, "Pellentesque habitant morbi tristique senectus et netus et m", $img_url , $actions);
+                        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($product->name, $description, $img_url , $actions);
                         $columns[] = $column;
                     }
 
