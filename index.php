@@ -118,8 +118,10 @@ if (!is_null($events['events'])) {
 
                 case 'New Avairal':
                     $products = $woocommerce->get('products', array( 'orderby' => 'date', 'order' => 'desc', 'per_page' => 10));
-
+                    $products = json_decode($products);
+                    
                     $columns = array();
+
 
                     foreach($products as $product){
                         $img_url = "https://gloimg.rglcdn.com/rosegal/pdm-product-pic/Clothing/2017/12/28/source-img/20171228165936_78536.jpg";
@@ -139,6 +141,8 @@ if (!is_null($events['events'])) {
                     $httpClient = new CurlHTTPClient($channel_token);
                     $bot = new LINEBot($httpClient, array('channelSecret' => $channel_secret));
                     $response = $bot->replyMessage($replyToken, $templateMessageBuilder);
+
+                    error_log(json_encode($response));
 
                     break;
 
