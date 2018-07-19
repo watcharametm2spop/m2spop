@@ -128,7 +128,7 @@ if (!is_null($events['events'])) {
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Order item',$wooEnpoint.'/shop/?add-to-cart='. $product->id),
                         );
-                        $description = '<p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>\n';
+                        $description = 'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n';
 
                         $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($product->name, $description, $img_url , $actions);
                         $columns[] = $column;
