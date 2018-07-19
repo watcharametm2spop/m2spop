@@ -1,12 +1,16 @@
 <?php
 
+require_once('./LINEBotTiny.php');
+
 // Token
 $channel_token = 'vWFV8hGQvQn/p8BCtcDjRWqmLpBaieSE46aGss4dS6pg99ovTx3aLRw8h1VOQqqJLJInHe9558Vn9XEMgUKvLnl176l4I9LVxsKoJpL/Ys9kAoRlB6rEfYcybyWNbEuU9Y/AV63nQRheUY3lBg9KcQdB04t89/1O/w1cDnyilFU=';
 $channel_secret = 'c6b8cd0c86c93eb91e33ca4a18cd45f4';
+$client = new LINEBotTiny($channel_token, $channel_secret);
 
 // Get message from Line API
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
+
 
 if (!is_null($events['events'])) {
 
@@ -81,7 +85,7 @@ if (!is_null($events['events'])) {
                     );
 
                     // Create message for send to LINE Server
-                    $message = array(
+                    $client->replyMessage( array(
                         'replyToken' => $replyToken,
                         'messages' => array(
                             array(
@@ -89,9 +93,7 @@ if (!is_null($events['events'])) {
                                 'altText' => 'FAQ',
                                 'contents' => $messages,
                             )
-                        ));
-
-                    send_message_to_line($channel_token, $message);
+                        )));
 
                     break;
             }
