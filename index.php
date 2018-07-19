@@ -22,67 +22,60 @@ if (!is_null($events['events'])) {
             switch($event['message']['text']) {
                 case 'FAQ':
 
-                    $messages = array (
+                    $messages = array(
                         'type' => 'bubble',
                         'body' =>
-                            array (
+                            array(
                                 'type' => 'box',
                                 'layout' => 'vertical',
                                 'spacing' => 'md',
                                 'contents' =>
-                                    array (
-                                        0 =>
-                                            array (
-                                                'type' => 'box',
-                                                'layout' => 'vertical',
-                                                'margin' => 'sm',
-                                                'contents' =>
-                                                    array (
-                                                        0 =>
-                                                            array (
-                                                                'type' => 'text',
-                                                                'text' => 'I AM HAVING PROBLEMS ACCESSING SAMPLE STORE. SOME OF THE PAGES LOOK WEIRD. AM I USING THE RIGHT BROWSER?',
-                                                                'wrap' => true,
-                                                                'color' => '#000000',
-                                                            ),
-                                                        1 =>
-                                                            array (
-                                                                'type' => 'text',
-                                                                'text' => 'As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers, it is recommended that you use the following browsers to access Sample Store: 
+                                    array(
+                                        array(
+                                            'type' => 'box',
+                                            'layout' => 'vertical',
+                                            'margin' => 'sm',
+                                            'contents' =>
+                                                array(
+                                                    array(
+                                                        'type' => 'text',
+                                                        'text' => 'I AM HAVING PROBLEMS ACCESSING SAMPLE STORE. SOME OF THE PAGES LOOK WEIRD. AM I USING THE RIGHT BROWSER?',
+                                                        'wrap' => true,
+                                                        'color' => '#000000',
+                                                    ),
+                                                    array(
+                                                        'type' => 'text',
+                                                        'text' => 'As Sample Store uses some of the latest graphics designs which may not be supported in lower version of browsers, it is recommended that you use the following browsers to access Sample Store: 
 
  1. Microsoft Internet Explorer Version 10 onwards.',
-                                                                'wrap' => true,
-                                                                'color' => '#666666',
-                                                            ),
+                                                        'wrap' => true,
+                                                        'color' => '#666666',
                                                     ),
-                                            ),
-                                        1 =>
-                                            array (
-                                                'type' => 'separator',
-                                            ),
-                                        2 =>
-                                            array (
-                                                'type' => 'box',
-                                                'layout' => 'vertical',
-                                                'margin' => 'sm',
-                                                'contents' =>
-                                                    array (
-                                                        0 =>
-                                                            array (
-                                                                'type' => 'text',
-                                                                'text' => 'HOW DO I MAKE PAYMENTS USING PAYPAL? HOW DOES IT WORK? ',
-                                                                'wrap' => true,
-                                                                'color' => '#000000',
-                                                            ),
-                                                        1 =>
-                                                            array (
-                                                                'type' => 'text',
-                                                                'text' => 'Paypal is the easiest way to make payments online. While checking out your order, you will be redirected to the Paypal website. Be sure to fill in correct details for fast & hassle-free payment processing. After a successful Paypal payment, a payment advice will be automatically generated to Samplestore.com system for your order.',
-                                                                'wrap' => true,
-                                                                'color' => '#666666',
-                                                            ),
+                                                ),
+                                        ),
+                                        array(
+                                            'type' => 'separator',
+                                        ),
+                                        array(
+                                            'type' => 'box',
+                                            'layout' => 'vertical',
+                                            'margin' => 'sm',
+                                            'contents' =>
+                                                array(
+                                                    array(
+                                                        'type' => 'text',
+                                                        'text' => 'HOW DO I MAKE PAYMENTS USING PAYPAL? HOW DOES IT WORK? ',
+                                                        'wrap' => true,
+                                                        'color' => '#000000',
                                                     ),
-                                            ),
+                                                    array(
+                                                        'type' => 'text',
+                                                        'text' => 'Paypal is the easiest way to make payments online. While checking out your order, you will be redirected to the Paypal website. Be sure to fill in correct details for fast & hassle-free payment processing. After a successful Paypal payment, a payment advice will be automatically generated to Samplestore.com system for your order.',
+                                                        'wrap' => true,
+                                                        'color' => '#666666',
+                                                    ),
+                                                ),
+                                        ),
                                     ),
                             ),
                     );
@@ -97,8 +90,6 @@ if (!is_null($events['events'])) {
                                 'contents' => $messages,
                             )
                         ));
-
-                    error_log(json_encode($message));
 
                     send_message_to_line($channel_token, $message);
 
