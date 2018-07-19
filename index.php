@@ -129,7 +129,7 @@ if (!is_null($events['events'])) {
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Order item',$wooEnpoint.'/shop/?add-to-cart='. $product->id),
                         );
 
-                        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Hoodie", "Pellentesque habitant morbi tristique senectus et netus et m", $img_url , $actions);
+                        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($product->name, "Pellentesque habitant morbi tristique senectus et netus et m", $img_url , $actions);
                         $columns[] = $column;
                     }
 
