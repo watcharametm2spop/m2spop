@@ -113,6 +113,40 @@ if (!is_null($events['events'])) {
                         )));
 
                     break;
+
+                case 'New Avairal':
+                    $products = $woocommerce->get('products', array( 'orderby' => 'date', 'order' => 'desc', 'per_page' => 10));
+
+                    // Create carousel for New Avairal products
+                    $LINEClient->replyMessage(array(
+                        'replyToken' => $replyToken,
+                        'messages' => array(
+                            array(
+                                'type' => 'template',
+                                'altText' => 'this is a carousel template',
+                                'template' => array(
+                                    'type' => 'carousel',
+                                    'actions' => array(),
+                                    'columns' => array(
+                                        array(
+                                            'thumbnailImageUrl' => 'http://m2spop.local/wp-content/uploads/2018/07/t-shirt-with-logo-1.jpg',
+                                            'title' => 'Hoodie', 'text' => 'Pellentesque habitant morbi tristique senectus et netus et m',
+                                            'actions' => array(
+                                                array(
+                                                    'type' => 'postback',
+                                                    'label' => 'สั่งซื้อไซต์ S',
+                                                    'text' => 'สั่งซื้อ',
+                                                    'data' => '{action:\'order\', id: 1, size: \'S\'}',
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        )));
+
+                    break;
+
                 case 'Best Seller':
                     $orders = $woocommerce->get('orders');
                     error_log(json_encode($orders));
