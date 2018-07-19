@@ -128,14 +128,14 @@ if (!is_null($events['events'])) {
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Order item',$wooEnpoint.'/shop/?add-to-cart='. $product->id),
                         );
-                        $description = str_replace('\n', '', strip_tags($product->short_description));
+                        $description = trim(preg_replace('/\s+/', ' ', strip_tags($product->short_description)));
 
                         $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($product->name, $description, $img_url , $actions);
                         $columns[] = $column;
                     }
 
                     $carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
-                    $templateMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
+                    $templateMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("M2SPop New Avairal", $carousel);
 
 
                     $httpClient = new CurlHTTPClient($channel_token);
