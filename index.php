@@ -128,9 +128,12 @@ if (!is_null($events['events'])) {
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Order item',$wooEnpoint.'/shop/?add-to-cart='. $product->id),
                         );
-                        $description = 'Stet clita kasd gubergren';
+                        // Title : 40 char
+                        // Detail: 60 char
+                        $title = substr($product->name,0, 39);
+                        $description = substr( trim(preg_replace('/\s+/', ' ', strip_tags($product->short_description))), 0, 59);
 
-                        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($product->name, $description, $img_url , $actions);
+                        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($title, $description, $img_url , $actions);
                         $columns[] = $column;
                     }
 
