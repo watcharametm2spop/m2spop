@@ -117,7 +117,7 @@ if (!is_null($events['events'])) {
                     break;
 
                 case 'New Avairal':
-                    $products = $woocommerce->get('products', array( 'orderby' => 'date', 'order' => 'desc', 'per_page' => 10));
+                    // $products = $woocommerce->get('products', array( 'orderby' => 'date', 'order' => 'desc', 'per_page' => 10));
 
                     $columns = array();
 
