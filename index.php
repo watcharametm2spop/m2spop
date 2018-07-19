@@ -125,7 +125,7 @@ error_log(json_encode($products)) ;
 
                     foreach($products as $product) {
                         $actions = array(
-                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product['permalink']),
+                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("สั่งซื้อเสื้อเบอร์ M","https://m2spop.herokuapp.com/buy.php?id=10&size=M"),
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("สั่งซื้อเสื้อเบอร์ L","https://m2spop.herokuapp.com/buy.php?id=10&size=L"),
                         );
