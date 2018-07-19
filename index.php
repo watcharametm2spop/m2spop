@@ -123,6 +123,7 @@ if (!is_null($events['events'])) {
 
 
                     foreach($products as $product) {
+                        error_log($product->images[0]->src);
                         $img_url = $product->images[0]->src;
 
                         $actions = array(
