@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'LINE\\' => array($vendorDir . '/linecorp/line-bot-sdk/src'),
     'Automattic\\WooCommerce\\' => array($vendorDir . '/automattic/woocommerce/src/WooCommerce'),
 );
