@@ -4,7 +4,7 @@ require __DIR__ . '/includes/LINE/LINEBot.php';
 require __DIR__ . '/includes/LINE/LINEBotTiny.php';
 require __DIR__ . '/includes/WooCommerce/Client.php';
 
-use Automattic\WooCommerce\Client as WooCommerceClient;
+use \Automattic\WooCommerce\Client;
 use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use \LINE\LINEBot;
 
@@ -17,7 +17,7 @@ $LINEClient = new LINEBotTiny($channel_token, $channel_secret);
 $wooEnpoint = 'http://m2spop.kinsta.com';
 $wooConsumerKey = 'ck_baefb163a9eaf1be2344dd858f45eb79c470e60e';
 $wooConsumerSecret = 'cs_8210144df1f6f4dac609e31c6a9c64e1cecb1bfa';
-$woocommerce = new WooCommerceClient(
+$woocommerce = new Client(
     $wooEnpoint,
     $wooConsumerKey,
     $wooConsumerSecret,
