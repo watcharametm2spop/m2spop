@@ -126,7 +126,7 @@ if (!is_null($events['events'])) {
 
                         $actions = array(
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
-                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Order item',$wooEnpoint.'/shop/?add-to-cart='. $product->id),
+                            new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Order item',$wooEnpoint.'/?do=line_add_to_cart&product_id='. $product->id),
                         );
                         // Title : 40 char
                         // Detail: 60 char
