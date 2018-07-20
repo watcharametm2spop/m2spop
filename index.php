@@ -1,12 +1,11 @@
 <?php
 
-require __DIR__ . '/includes/LINE/LINEBot.php';
-require __DIR__ . '/includes/LINE/LINEBotTiny.php';
-require __DIR__ . '/includes/WooCommerce/Client.php';
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/LINEBotTiny.php';
 
-use \Automattic\WooCommerce\Client;
 use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use \LINE\LINEBot;
+use Automattic\WooCommerce\Client as WooCommerceClient;
 
 // LINE Client
 $channel_token = 'vWFV8hGQvQn/p8BCtcDjRWqmLpBaieSE46aGss4dS6pg99ovTx3aLRw8h1VOQqqJLJInHe9558Vn9XEMgUKvLnl176l4I9LVxsKoJpL/Ys9kAoRlB6rEfYcybyWNbEuU9Y/AV63nQRheUY3lBg9KcQdB04t89/1O/w1cDnyilFU=';
@@ -17,7 +16,7 @@ $LINEClient = new LINEBotTiny($channel_token, $channel_secret);
 $wooEnpoint = 'http://m2spop.kinsta.com';
 $wooConsumerKey = 'ck_baefb163a9eaf1be2344dd858f45eb79c470e60e';
 $wooConsumerSecret = 'cs_8210144df1f6f4dac609e31c6a9c64e1cecb1bfa';
-$woocommerce = new Client(
+$woocommerce = new WooCommerceClient(
     $wooEnpoint,
     $wooConsumerKey,
     $wooConsumerSecret,
