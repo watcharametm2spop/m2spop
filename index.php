@@ -1,11 +1,12 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/LINEBotTiny.php';
+require __DIR__ . '/includes/LINE/LINEBot.php';
+require __DIR__ . '/includes/LINE/LINEBotTiny.php';
+require __DIR__ . '/includes/WooCommerce/Client.php';
 
+use Automattic\WooCommerce\Client as WooCommerceClient;
 use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use \LINE\LINEBot;
-use Automattic\WooCommerce\Client as WooCommerceClient;
 
 // LINE Client
 $channel_token = 'vWFV8hGQvQn/p8BCtcDjRWqmLpBaieSE46aGss4dS6pg99ovTx3aLRw8h1VOQqqJLJInHe9558Vn9XEMgUKvLnl176l4I9LVxsKoJpL/Ys9kAoRlB6rEfYcybyWNbEuU9Y/AV63nQRheUY3lBg9KcQdB04t89/1O/w1cDnyilFU=';
