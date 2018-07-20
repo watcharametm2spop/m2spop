@@ -122,7 +122,8 @@ if (!is_null($events['events'])) {
                     $columns = array();
 
                     foreach($products as $product) {
-                        $img_url = 'https://gloimg.rglcdn.com/rosegal/pdm-product-pic/Clothing/2017/12/28/source-img/20171228165936_78536.jpg';
+                        // Must https
+                        $img_url = 'https://m2spop.herokuapp.com/product-image.jpg';
 
                         $actions = array(
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
