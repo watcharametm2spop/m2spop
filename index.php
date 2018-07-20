@@ -123,7 +123,7 @@ if (!is_null($events['events'])) {
 
                     foreach($products as $product) {
                         // Must https
-                        $img_url = 'https://m2spop.herokuapp.com/product-image-2.jpg';
+                        $img_url = 'https://m2spop.herokuapp.com/product-image.jpg';
 
                         $actions = array(
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
