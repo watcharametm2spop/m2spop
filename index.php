@@ -121,10 +121,8 @@ if (!is_null($events['events'])) {
 
                     $columns = array();
 
-
                     foreach($products as $product) {
-                        error_log($product->images[0]->src);
-                        $img_url = $product->images[0]->src;
+                        $img_url = 'https://gloimg.rglcdn.com/rosegal/pdm-product-pic/Clothing/2017/12/28/source-img/20171228165936_78536.jpg';
 
                         $actions = array(
                             new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('View detail', $product->permalink),
