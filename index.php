@@ -1,7 +1,8 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/LINEBotTiny.php';
+require __DIR__ . '/includes/LINE/LINEBot.php';
+require __DIR__ . '/includes/LINE/LINEBotTiny.php';
 
 use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use \LINE\LINEBot;
