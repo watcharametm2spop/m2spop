@@ -138,7 +138,7 @@ if (!is_null($events['events'])) {
                         $columns[] = $column;
                     }
 
-                    $carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
+                    $carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns, 'square', 'cover');
                     $templateMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("M2SPop New Avairal", $carousel);
 
 
